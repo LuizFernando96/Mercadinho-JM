@@ -1,0 +1,25 @@
+Table Vendas {
+  ID_Venda int [primary key]
+  ID_Tempo int [ref: > Tempo.ID_Tempo]
+  Total_Venda float
+}
+
+Table Tempo {
+  ID_Tempo int [primary key]
+  Data datetime
+  Dia_Semana varchar
+}
+
+Table Produtos {
+  ID_Produto int [primary key]
+  Nome varchar
+  Preco float
+}
+
+Table Itens_Venda {
+  ID_Item int [primary key]
+  ID_Venda int [ref: > Vendas.ID_Venda]
+  ID_Produto int [ref: > Produtos.ID_Produto]
+  Quantidade int
+  Subtotal_Item float
+}
